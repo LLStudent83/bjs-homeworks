@@ -17,7 +17,7 @@ function getAverageMark(marks){
   let averageMark;
   let sum = 0;
   if (marks.length === 0){
-    averageMark = 0;
+    return 0;
   } else if (marks.length > 5){
     console.log("Оценок больше 5");
     let marks_5 = marks.slice(0,5);
@@ -36,7 +36,6 @@ function getAverageMark(marks){
 
 function askDrink(name,dateOfBirthday){
   let age = (new Date().getFullYear()) - (dateOfBirthday.getFullYear());
-  let result
   if (age >= 18) {
   return `Не желаете ли олд-фэшн, ${name}?`
 } else {
