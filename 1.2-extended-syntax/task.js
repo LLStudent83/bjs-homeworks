@@ -7,32 +7,24 @@ function getResult(a,b,c){
     x[1] = (- b - Math.sqrt(D)) / (2 * a);
   } else if (D === 0) {
     x[0] = (- b)/ (2 * a);
-  } else {
-    }
+  }
     return x;
 }
 
 
 function getAverageMark(marks){
-  let averageMark;
   let sum = 0;
   if (marks.length === 0){
     return 0;
   } else if (marks.length > 5){
     console.log("Оценок больше 5");
-    let marks_5 = marks.slice(0,5);
-    for (let i = 0;i < marks_5.length;i++) {
-      sum = sum + marks_5[i];
-    }
-    averageMark = sum / marks_5.length;
-  } else {
-    for (let i = 0;i < marks.length;i++) {
+    marks = marks.slice(0,5);
+  }
+  for (let i = 0;i < marks.length;i++) {
       sum = sum + marks[i];
     }
-    averageMark = sum / marks.length;
-  }
-    return averageMark;
-}
+      return  sum / marks.length;
+  } 
 
 function askDrink(name,dateOfBirthday){
   let age = (new Date().getFullYear()) - (dateOfBirthday.getFullYear());
