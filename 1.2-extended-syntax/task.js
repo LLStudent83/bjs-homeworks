@@ -8,7 +8,7 @@ function getResult(a,b,c){
   } else if (D === 0) {
     x[0] = (- b)/ (2 * a);
   } else {
-    x[0] = "Решение отсутствует";
+    x = [];
   }
     return x;
 }
@@ -16,17 +16,27 @@ function getResult(a,b,c){
 
 function getAverageMark(marks){
   let averageMark;
-  if (marks.length ===0){
+  let sum = 0;
+  if (marks.length === 0){
     averageMark = 0;
+  } else if (marks.length > 5){
+    console.log("Оценок больше 5");
+    let marks_5 = marks.slice(0,5);
+    for (let i = 0;i < marks_5.length;i++) {
+      sum = sum + marks_5[i];
+    }
+    averageMark = sum / marks_5.length;
   } else {
-    marks_5 = marks.slice(0,5);
-    averageMark = (marks_5.reduce(function(a, b) {return a + b}) /marks_5.length);
+    for (let i = 0;i < marks.length;i++) {
+      sum = sum + marks[i];
+    }
+    averageMark = sum / marks.length;
   }
     return averageMark;
 }
 
 function askDrink(name,dateOfBirthday){
-  let age = (new Date().getFullYear()) - dateOfBirthday;
+  let age = (new Date().getFullYear()) - (dateOfBirthday.getFullYear());
   let result
   if (age >= 18) {
   result = `Не желаете ли олд-фэшн, ${name}?`
