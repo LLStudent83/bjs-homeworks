@@ -8,8 +8,7 @@ function getResult(a,b,c){
   } else if (D === 0) {
     x[0] = (- b)/ (2 * a);
   } else {
-    x = [];
-  }
+    }
     return x;
 }
 
@@ -39,9 +38,8 @@ function askDrink(name,dateOfBirthday){
   let age = (new Date().getFullYear()) - (dateOfBirthday.getFullYear());
   let result
   if (age >= 18) {
-  result = `Не желаете ли олд-фэшн, ${name}?`
+  return `Не желаете ли олд-фэшн, ${name}?`
 } else {
-  result = `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`
+  return `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`
 }
-  return result;
 }
