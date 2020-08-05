@@ -41,6 +41,10 @@ let totalAmount = (contributionNum + mineDebt + (monthPayment * dateNumMonth)).t
     return totalAmount;
 }
 function getGreeting(name) {
-    // код для задачи №2 писать здесь
-    // return greeting;
+    if (Boolean(name) === true) {
+      greeting = `Привет, мир! Меня зовут ${name}`;
+    } else {
+      greeting = `Привет, мир! Меня зовут Аноним`;
+    }
+    return greeting;
 }
