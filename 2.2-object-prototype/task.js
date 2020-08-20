@@ -6,8 +6,13 @@ String.prototype.isPalindrome = function(){
 };
 
 function getAverageMark(marks) {
-    // код для задачи №2 писать здесь
-    // return averageMark
+  let arrSumm = 0;
+  for (let i = 0; i < marks.length; i++) {
+    arrSumm = arrSumm + marks[i];
+    };
+  let average = arrSumm / marks.length; // средний балл
+  let roundedAverage = Math.round(average); //округляем до ближайшего целого
+  return roundedAverage;
 }
 
 function checkBirthday(birthday) {
