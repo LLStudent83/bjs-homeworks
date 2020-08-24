@@ -1,5 +1,5 @@
 String.prototype.isPalindrome = function(){
-  const strL = str.toLowerCase();
+  const strL = this.toLowerCase();
   if (strL.split("").reverse().join("").split(" ").join("") === strL.split(" ").join("")) {
     return true;
   } else { return false };
