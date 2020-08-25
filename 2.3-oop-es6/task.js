@@ -74,19 +74,19 @@ class Library {
     for (let i = 0;i < this.books.length;i++) {
       for (let prop in this.books[i]) {
         if (prop === type &&  this.books[i][prop] === value){
-          //console.log(type, value);
-          return this.books[i].name;
-        } else {null};
+          return this.books[i];
+        };
       }
     }
+    return null;
   }
+
   giveBookByName(bookName){
     for(let i = 0;i < this.books.length;i++){
       if(this.books[i].name === bookName){
-        this.books.splice([i],1);
-        console.log("Удаленная книга " + bookName + " " + this.books[i]);
-        return this.books[i];
-      } else {null};
+        return this.books.splice([i],1);
+      }
     }
+    return null;
   }
 }
