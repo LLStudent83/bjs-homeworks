@@ -10,7 +10,6 @@ function parseCount(strPars) {
 
 function validateCount(strPars) {
   try {
-    parseCount(strPars);
     return parseCount(strPars);
   } catch (ErrPars) {
   return ErrPars;
@@ -19,7 +18,7 @@ function validateCount(strPars) {
 
 class Triangle {
   constructor(a, b, c) {
-    if (((a + b) <= c) || ((a + c) <= b)) {
+    if (((a + b) <= c) || ((a + c) <= b) || ((b + c) <= a)){
       const errTr = new Error("Треугольник с такими сторонами не существует");
       throw errTr;
     };
@@ -29,35 +28,27 @@ class Triangle {
   };
 
   getPerimeter() {
-    let a = this.a;
-    let b = this.b;
-    let c = this.c;
-    const p = a + b + c;
-    return p;
+    return this.a + this.b + this.c;
   };
   getArea() {
-    let a = this.a;
-    let b = this.b;
-    let c = this.c;
-    const hp = (a + b + c) / 2;
-    const s = (Math.floor((Math.sqrt(hp * ((hp - a) * (hp - b) * (hp - c)))) * 1000)) / 1000;
-    return s;
+    const hp = triangle.getPerimeter() / 2;
+    return (Math.floor((Math.sqrt(hp * ((hp - this.a) * (hp - this.b) * (hp - this.c)))) * 1000)) / 1000;;
   };
 };
 
+
+
 function getTriangle(a, b, c) {
   try {
-    let triangle2 = new Triangle(a, b, c);
-    return triangle2;
+    return new Triangle(a, b, c);
   } catch(err) {
-    const triangleErr = {
+    return {
       getPerimeter: function() {
-        return "Ошибка! Треугольник не существует";
+        "Ошибка! Треугольник не существует";
       },
       getArea: function() {
-        return "Ошибка! Треугольник не существует";
+        "Ошибка! Треугольник не существует";
       }
     };
-    return triangleErr;
   }
 }
