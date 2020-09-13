@@ -19,23 +19,21 @@ function compareArrays(arr1, arr2) {
 }
 
 
+
 function memorize(fn, limit) {
-  let memory = [];
   function mSum(args) {
     let elemMem = memory.find(item => compareArrays(item.args, args));
-    if (elemMem !== undefined) {
+    if (elemMem) {
       return elemMem.result;
-    } else {
+    }
       const resultFn = fn(...args);
       memory.push({ args: args, result: resultFn });
       if (memory.length > limit) {
         memory.shift()
-        
       }
       return resultFn;
-    }
-
   }
+  console.log(memory);
   return mSum;
 }
 
